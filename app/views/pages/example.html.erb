@@ -1,0 +1,27 @@
+hola
+<h1>Pages#about</h1>
+<p>Find me in app/views/pages/about.html.erb</p>
+<a href="http://localhost:3000/pages/index">link</a>
+<a href="pages/about">link 2</a>
+<a href=" <%= pages_about_path %>">link 3</a>
+<a href=" <%= root_path %>">link 4</a>
+<%= link_to  "hola!!!", root_path %>
+
+<% 10.times do |i| %>
+<%= "hola" %>
+<% end  %>
+
+<% 5.times do |i| %>
+<h1> "hola" </h1>
+<% end  %>
+
+
+<% @products.each do |p| %>
+<h1> <%= p %> </h1>
+<% end  %>
+
+
+<%# código comentado %>
+<%= @products.each do |p| %>
+<h1> <%= p %> </h1>
+<% end  %>

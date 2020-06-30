@@ -1,0 +1,34 @@
+<section class="mt-5 pt-2">
+    <p id="notice"><%= notice %></p>
+
+    <div class="row">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+            <% if @tweets.any? %>
+            <% @tweets.each do |tweet| %>
+            <div class="card-body border my-2">
+                <div class="row">
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                        <h6 class="card-title"><%= tweet.title %></h6>
+                        <p class="card-text"><%= tweet.content %></p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        <%= link_to 'Editar', edit_tweet_path(tweet), class: 'cinfo'  %>
+
+                        <%= link_to 'Borrar', tweet, method: :delete, data: { confirm: '¿Estás segur@?' }, class: 'cinfo2 ' %>
+                    </div>
+                </div>
+
+            </div>
+            <% end %>
+            <% else %>
+            <h1>No hay tweets con el contenido <%= params[:query] %></h1>
+
+            <% end %>
+        </div>
+
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+            <%# link_to 'Nuevo Tweet', new_tweet_path %>
+            <%= render 'form', tweet: @new_tweet %>
+        </div>
+    </div>
+</section>
